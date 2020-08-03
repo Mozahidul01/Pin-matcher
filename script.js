@@ -22,13 +22,21 @@ function submitPin() {
         document.getElementById("pin-mismatched").style.display = "none";
         document.getElementById("pin-matched").style.display = "none";
         document.getElementById("try-left").style.display = "none";
-    } else if (inputPin == generatePin) {
+    }
+    else if (generatePin == "") {
+        alert('Please Generate Pin First');
+        document.getElementById("pin-mismatched").style.display = "none";
+        document.getElementById("pin-matched").style.display = "none";
+        document.getElementById("try-left").style.display = "none";
+    }
+     else if (inputPin == generatePin) {
         document.getElementById("pin-matched").style.display = "block";
         document.getElementById("pin-mismatched").style.display = "none";
         document.getElementById("try-left").style.display = "none";
         document.getElementById("generate-number").value = "";
         document.getElementById('input-pin').value = "";
-    } else {
+    }
+     else {
         document.getElementById("pin-matched").style.display = "none";
         document.getElementById("pin-mismatched").style.display = "block";
         document.getElementById('input-pin').value = "";
@@ -47,11 +55,14 @@ function tryLeft() {
 
     if (count == 1 && generatePin !== inputPin) {
         document.getElementById("try-left").style.display = "block";
-    } else if (count == 2 && generatePin !== inputPin) {
+    }
+     else if (count == 2 && generatePin !== inputPin) {
         document.getElementById("try-left").innerText = "2 try left"
-    } else if (count == 3 && generatePin !== inputPin) {
+    }
+     else if (count == 3 && generatePin !== inputPin) {
         document.getElementById("try-left").innerText = "1 try left"
-    } else if (count == 4 && generatePin !== inputPin) {
+    }
+     else if (count == 4 && generatePin !== inputPin) {
         document.getElementById("try-left").innerText = "0 try left"
         document.getElementById("submit-button").disabled = true;
     }
